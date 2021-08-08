@@ -22,27 +22,17 @@ function ChatFeed(props) {
                           ? <MyMessage message={message}/>
                           : <TheirMessage message={message} lastMessage={messages[lastMessageKey]}/>
                       }
-
                   </div>
-
                   <div className="read-receipts" style={{marginRight: isMyMessage ? '18px' : '0px', marginLeft: isMyMessage? '0px': '68px'}}> 
                   read-receipts
-
                   </div>
-
               </div>
-
           )
-
-
       } )
     }
 
-
     if (!chat) return 'Loading..'
 
-
-    
     return (
         <div className="chat-feed">
              <div className="chat-title-container">
@@ -53,10 +43,9 @@ function ChatFeed(props) {
         </div>
         {renderMessages()}
         <div style={{height: '100px'}}/>
-        <div className="chat-form-container">
+        <div className="message-form-container">
             <MessageForm {...props} chatId={activeChat}/>
         </div>
-            
         </div>
     )
 }
