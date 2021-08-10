@@ -71,16 +71,7 @@ const ChatFeed = (props) => {
           }}
 
           )}
-
-      
-
       {onlineArr.length === activeUsersNumber? <h3> everyone is active </h3>: <h3> {onlineArr} is active</h3>}
-
-       
-
-        
-       
-
           </div>
         
         </div>

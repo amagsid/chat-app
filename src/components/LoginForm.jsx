@@ -42,6 +42,7 @@ function LoginForm() {
           </form>
           <h1 className='error'>{error}</h1>
         </div>
+       
       </div>
   
     );
