@@ -48,13 +48,41 @@ const ChatFeed = (props) => {
 
   if (!chat) return <div />;
 
+ 
+
+  const activeUsersNumber = chat.people.length
+  const onlineArr = []
+
+  console.log(onlineArr)
+
   return (
     <div className="chat-feed">
              <button>logout</button>
       <div className="chat-title-container">
         <div className="chat-title">{chat?.title}</div>
         <div className="chat-subtitle">
-          {chat.people.map((person) => ` ${person.person.username}`)}
+          <h3> {activeUsersNumber === 1? ' 1 person' : activeUsersNumber > 1 ? `${activeUsersNumber} people are in this chat` : null }</h3>
+          <div className='flex-container'>
+          {chat.people.map((person) => 
+
+          
+          {if (person.person.is_online === true )  {
+            onlineArr.push(person.person.first_name)   
+          }}
+
+          )}
+
+      
+
+      {onlineArr.length === activeUsersNumber? <h3> everyone is active </h3>: <h3> {onlineArr} is active</h3>}
+
+       
+
+        
+       
+
+          </div>
+        
         </div>
       </div>
       {renderMessages()}
