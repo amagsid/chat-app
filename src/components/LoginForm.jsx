@@ -1,6 +1,14 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 import { BorderTopOutlined } from '@ant-design/icons'
+import SignUp from '../screens/SignUp'
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 const projectID = 'c6bb26d2-597f-41fa-b7a8-c9138cd4f906';
 
@@ -41,6 +49,11 @@ function LoginForm() {
             </div>
           </form>
           <h1 className='error'>{error}</h1>
+
+          <h6> New user? <Link to='/signup'> sign up here </Link> </h6>
+
+          
+
         </div>
        
       </div>
