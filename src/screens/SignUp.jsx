@@ -1,5 +1,8 @@
 import React,  {useState}  from 'react'
 import axios from 'axios'
+import {
+    Link
+  } from "react-router-dom";
 
 function SignUp() {
     const [firstName, setFirstName] = useState('');
@@ -9,8 +12,11 @@ function SignUp() {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
+
     const [isCreated, setIsCreated] = useState(false);
     const [error, setError] = useState('');
+
+    let userExists
 
 
     const handleSubmit = async (e) => {
@@ -20,7 +26,6 @@ function SignUp() {
             "username": username,
             "secret": password,
         }
-
         const config = {
             method: 'post',
             url: 'https://api.chatengine.io/users/',
@@ -29,20 +34,44 @@ function SignUp() {
             },
             data : data
         };
+
+        const authObject = { 'Project-ID': process.env.REACT_APP_PROJECT_ID, 'User-Name': username, 'User-Secret': password };
+
        
         // if (!(username.length > 0 && password === confirmPassword && password.length > 0)) return;
+
+        
    
       
         try {
 
-          const newUser = await axios(config)
+            const users = await axios.get('https://api.chatengine.io/users', {
+            headers: { 'PRIVATE-KEY': process.env.REACT_APP_PRIVATE_KEY }
+          });
 
+           userExists = users.data.some((user)=>  user.username === username )
+
+          if (!userExists) {
+
+          const newUser = await axios(config)
           if(newUser.status === 201) setIsCreated(true)
 
-        //   localStorage.setItem('username', username);
-        //   localStorage.setItem('password', password);
+          console.log(newUser)
+
+          await axios.get('https://api.chatengine.io/chats', { headers: authObject });
+
+          localStorage.setItem('username', username);
+          localStorage.setItem('password', password);
     
-        //   window.location.reload();
+    
+
+          } else {
+              setError('username already exists, try signing in')
+          }
+
+       
+
+
           
 
         } catch (e){
@@ -51,9 +80,11 @@ function SignUp() {
         }
     }
     return (
+
         <div className="wrapper">
             <div className="form">
                 <h4 className="title"> {!isCreated ? 'Create a new account' :` user created! you can start chatting now!`}  </h4>
+                {isCreated && <Link to='/'>  <button> go to chat</button> </Link>}
               
                 <form onSubmit={handleSubmit}>
                 {/* <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} className="input" placeholder="first name" required />
@@ -70,9 +101,10 @@ function SignUp() {
                         </button>
                     </div>
                 </form>
-          <h1 className='error'>{error}</h1>
+          <h1 className='error'>{ error}</h1>
           </div>
           </div>
+
     )
 }
 

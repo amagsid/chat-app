@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 import { BorderTopOutlined } from '@ant-design/icons'
+import { AiFillWechat } from "react-icons/ai";
+
 import {
   Link
 } from "react-router-dom";
@@ -20,6 +22,7 @@ function LoginForm() {
       const authObject = { 'Project-ID': process.env.REACT_APP_PROJECT_ID, 'User-Name': username, 'User-Secret': password };
   
       try {
+        
         await axios.get('https://api.chatengine.io/chats', { headers: authObject });
   
         localStorage.setItem('username', username);
@@ -35,7 +38,8 @@ function LoginForm() {
     return (
       <div className="wrapper">
         <div className="form">
-          <h1 className="title">Chat Application</h1>
+          
+          <AiFillWechat size={150} className="title faa-tada faa-slow animated" />
           <form onSubmit={handleSubmit}>
             <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} className="input" placeholder="Username" required />
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="input" placeholder="Password" required />
@@ -44,10 +48,11 @@ function LoginForm() {
                 <span>Start chatting</span>
               </button>
             </div>
+            <h6 className="subtitle"> first time here? <Link to='/signup'> create a new account</Link> </h6>
           </form>
           <h1 className='error'>{error}</h1>
 
-          <h6> New user? <Link to='/signup'> sign up here </Link> </h6>
+          
 
           
 
