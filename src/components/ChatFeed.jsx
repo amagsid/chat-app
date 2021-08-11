@@ -53,7 +53,6 @@ const ChatFeed = (props) => {
   const activeUsersNumber = chat.people.length
   const onlineArr = []
 
-  console.log(onlineArr)
 
 
   return (
@@ -76,7 +75,7 @@ const ChatFeed = (props) => {
       
 
           )}
-     <h3>  {onlineArr.length === activeUsersNumber? 'everyone is active' : onlineArr.length === 1 ? `only ${onlineArr[0]} is active` : `only ${ onlineArr.map((user)=> user)} are active`   }  </h3>
+     <h3>  {onlineArr.length === activeUsersNumber? 'everyone is active' : onlineArr.length === 1 ? `only ${onlineArr[0]} is active` : `only ${ onlineArr.map((user)=> <h6>{user}</h6> )} are active`   }  </h3>
           </div>
         
         </div>

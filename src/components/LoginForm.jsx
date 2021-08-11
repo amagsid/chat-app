@@ -1,26 +1,23 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 import { BorderTopOutlined } from '@ant-design/icons'
-import SignUp from '../screens/SignUp'
-
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
   Link
 } from "react-router-dom";
-
-const projectID = 'c6bb26d2-597f-41fa-b7a8-c9138cd4f906';
 
 function LoginForm() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+
+
+    // console.log(process.env.REACT_APP_PROJECT_ID)
+    // console.log(process.env.REACT_APP_PRIVATE_KEY)
   
     const handleSubmit = async (e) => {
       e.preventDefault();
   
-      const authObject = { 'Project-ID': projectID, 'User-Name': username, 'User-Secret': password };
+      const authObject = { 'Project-ID': process.env.REACT_APP_PROJECT_ID, 'User-Name': username, 'User-Secret': password };
   
       try {
         await axios.get('https://api.chatengine.io/chats', { headers: authObject });

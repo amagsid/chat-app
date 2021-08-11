@@ -8,12 +8,8 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
   } from "react-router-dom";
 import SignUp from './screens/SignUp';
-
-
-const projectID = 'c6bb26d2-597f-41fa-b7a8-c9138cd4f906';
 
 const App = () => {
   
@@ -27,7 +23,7 @@ const App = () => {
     
           <ChatEngine
       height="100vh"
-      projectID={projectID}
+      projectID={process.env.REACT_APP_PROJECT_ID}
       userName={localStorage.getItem('username')}
       userSecret={localStorage.getItem('password')}
       renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
