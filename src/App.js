@@ -1,14 +1,19 @@
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { ChatEngine } from 'react-chat-engine';
 import ChatFeed from './components/ChatFeed';
+import ChatHeader from './components/ChatHeader';
 import LoginForm from './components/LoginForm';
-import './App.css';
+import SignUp from './screens/SignUp';
+import ChatSettingsTop from './components/ChatSettingsTop';
+
 
 import {
     BrowserRouter as Router,
     Switch,
     Route,
   } from "react-router-dom";
-import SignUp from './screens/SignUp';
+
 
 const App = () => {
 
@@ -25,6 +30,8 @@ const App = () => {
       userName={localStorage.getItem('username')}
       userSecret={localStorage.getItem('password')}
       renderChatFeed={(chatAppProps) =>  <ChatFeed {...chatAppProps} />}
+      renderChatHeader={(chat) => <ChatHeader chat={chat}/> }
+      renderChatSettingsTop={(creds, chat) => <ChatSettingsTop creds={creds} chat={chat}/>}
       onNewMessage={() => new Audio('https://chat-engine-assets.s3.amazonaws.com/click.mp3').play()}/> 
 
     </Switch>

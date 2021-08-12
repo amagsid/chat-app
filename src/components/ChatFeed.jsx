@@ -48,12 +48,7 @@ const ChatFeed = (props) => {
     });
   };
 
-  const signOut = () => {
-    localStorage.setItem('username', '');
-    localStorage.setItem('password', '');
-
-    window.location.reload();
-  }
+ 
 
   const activeUsersNumber = chat?.people.length
   const onlineArr = []
@@ -64,22 +59,22 @@ const ChatFeed = (props) => {
       {chat ? (
          <div className="chat-feed">
     
-         <button onClick={signOut}>logout</button>
+       
          <div className="chat-title-container">
         
          <div className="chat-title">{chat?.title}</div>
          <div className="chat-subtitle">
-           <h3> {activeUsersNumber === 1? ' 1 person' : activeUsersNumber > 1 ? `${activeUsersNumber} people are in this chat` : null }
-           </h3>
+           {/* <h3> {activeUsersNumber === 1? ' 1 person' : activeUsersNumber > 1 ? `${activeUsersNumber} people are in this chat` : null }
+           </h3> */}
            <div className='flex-container'>
-           {chat.people.map((person) => 
+           {/* {chat.people.map((person) => 
            {if (person.person.is_online === true )  {
              // console.log(person.person)
              onlineArr.push(person.person.username) 
              // console.log(onlineArr)  
-           }})}
+           }})} */}
            
-           <h3>  {onlineArr.length === activeUsersNumber? 'everyone is active' : onlineArr.length === 1 ? `only ${onlineArr[0]} is active` : `only ${ onlineArr.map((user)=> <h6>{user}</h6> )} are active`   }  </h3>
+           {/* <h3>  {onlineArr.length === activeUsersNumber? 'everyone is active' : onlineArr.length === 1 ? `only ${onlineArr[0]} is active` : `only ${ onlineArr.map((user)=> <h6>{user}</h6> )} are active`   }  </h3> */}
          </div>
          
          </div>

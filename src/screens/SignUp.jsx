@@ -5,6 +5,10 @@ import {
     Link
   } from "react-router-dom";
 
+  import { FaThumbsUp } from "react-icons/fa";
+
+  
+
 function SignUp() {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -95,8 +99,8 @@ function SignUp() {
 
         <div className="wrapper">
             <div className="form">
-                <h4 className="title"> {!isCreated ? 'Create a new account' :` user created! you can start chatting now!`}  </h4>
-                {isCreated &&  <button onClick={redirectToChat}> go to chat</button> }
+                <h4 className="account-title"> {!isCreated ? 'create your account' :` Wohoo! account created `} {isCreated &&<FaThumbsUp className='faa-bounce faa-slow animatied '/>}  </h4>
+                {/* {isCreated &&  <button onClick={redirectToChat}> go to chat</button> } */}
               
                 <form onSubmit={handleSubmit}>
                 {/* <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} className="input" placeholder="first name" required />
@@ -109,7 +113,9 @@ function SignUp() {
                     {/* <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className="input" placeholder="confirm password" required /> */}
                     
                     <div align="center">
-                        <button type="submit" className="button"> <span>Create account</span>
+                       
+                        <button type="submit" className="button" onClick={isCreated ? redirectToChat: null }> 
+                           <span> {isCreated ? 'chat now' : 'Create account'} </span> 
                         </button>
                     </div>
                 </form>

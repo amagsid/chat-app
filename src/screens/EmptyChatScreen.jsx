@@ -4,7 +4,6 @@ import { IoIosArrowBack } from "react-icons/io";
 
 function EmptyChatScreen() {
 
-    const emptyChat = './'
 
     return (
         <div className='no-chat-container'>
