@@ -1,4 +1,5 @@
 import React,  {useState}  from 'react'
+import { useHistory } from "react-router";
 import axios from 'axios'
 import {
     Link
@@ -15,6 +16,8 @@ function SignUp() {
 
     const [isCreated, setIsCreated] = useState(false);
     const [error, setError] = useState('');
+
+    const history = useHistory();
 
     let userExists
 
@@ -56,35 +59,44 @@ function SignUp() {
           const newUser = await axios(config)
           if(newUser.status === 201) setIsCreated(true)
 
-          console.log(newUser)
+ 
 
           await axios.get('https://api.chatengine.io/chats', { headers: authObject });
 
           localStorage.setItem('username', username);
           localStorage.setItem('password', password);
-    
-    
-
           } else {
-              setError('username already exists, try signing in')
+              setError(`username already exists, try signing in`)
           }
 
-       
 
-
-          
+        //   url(${person.person.avatar})
 
         } catch (e){
             console.log(e)
             setError('Oops, something went wrong');
         }
     }
+
+    const redirectToChat =() =>{
+
+
+        history.push({
+            pathname:  "/",
+            state: {
+              response: 'messageFromServer'
+            } 
+         });
+
+         window.location.reload();
+
+    }
     return (
 
         <div className="wrapper">
             <div className="form">
                 <h4 className="title"> {!isCreated ? 'Create a new account' :` user created! you can start chatting now!`}  </h4>
-                {isCreated && <Link to='/'>  <button> go to chat</button> </Link>}
+                {isCreated &&  <button onClick={redirectToChat}> go to chat</button> }
               
                 <form onSubmit={handleSubmit}>
                 {/* <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} className="input" placeholder="first name" required />

@@ -12,9 +12,7 @@ function LoginForm() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
-
-    // console.log(process.env.REACT_APP_PROJECT_ID)
-    // console.log(process.env.REACT_APP_PRIVATE_KEY)
+    // if ()
   
     const handleSubmit = async (e) => {
       e.preventDefault();
