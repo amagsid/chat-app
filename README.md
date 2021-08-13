@@ -28,7 +28,7 @@
 <br />
 <p align="center">
   <a href="https://cord-app.netlify.app">
-    <img src="public/read-me logo.png" alt="Logo" width="80" height="80">
+    <img src="public/read-me logo.png" alt="Logo" width="200" height="120">
   </a>
 
   <!-- <h3 align="center">Best-README-Template</h3> -->
@@ -139,7 +139,7 @@ Distributed under the MIT License. See `LICENSE` for more information. -->
 <!-- CONTACT -->
 ## Contact
 
- [Twittwer](https://twitter.com/isahmad_true) - email@example.com
+ [Twitter](https://twitter.com/isahmad_true) - amagsid@gmail.com
 
 <!-- Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name) -->
 
