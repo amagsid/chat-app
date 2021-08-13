@@ -82,7 +82,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][<img alt="GIF" src="https://github.com/amagsid/COVID-world-dashboard/blob/main/src/assets/readme-assets/app-preview.gif" width="950" height="530" />]](https://cord-app.netlify.app)
+[!<img alt="GIF" src="https://github.com/amagsid/chat-app/blob/main/public/homescreen-gif.gif" width="950" height="530" />](https://cord-app.netlify.app)
+[!<img alt="GIF" src="https://github.com/amagsid/chat-app/blob/main/public/newaccount-gif.gif" width="950" height="530" />](https://cord-app.netlify.app)
+[!<img alt="GIF" src="https://github.com/amagsid/chat-app/blob/main/public/first-chat.gif" width="950" height="530" />](https://cord-app.netlify.app)
 <!-- 
 There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
 
