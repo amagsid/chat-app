@@ -37,7 +37,7 @@ function NavBar() {
     <Dropdown.Item href="/profile">Profile (work in progress)</Dropdown.Item>
     {/* <Dropdown.Item href="#/action-2">Another action</Dropdown.Item> */}
     <NavDropdown.Divider />
-    <Dropdown.Item  onClick={signOut}> <BiLogOut size={20} style={{color:'purple'}}/> logout</Dropdown.Item>
+    <Dropdown.Item  onClick={signOut}> <BiLogOut size={20} style={{color:'purple'}}/>logout</Dropdown.Item>
   </Dropdown.Menu>
 </Dropdown>
 

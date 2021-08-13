@@ -99,7 +99,7 @@ function SignUp() {
 
         <div className="wrapper">
             <div className="form">
-                <h4 className="account-title"> {!isCreated ? 'create your account' :` Wohoo! account created `} {isCreated &&<FaThumbsUp className='faa-bounce faa-slow animatied '/>}  </h4>
+                <h4 className="account-title"> {!isCreated ? 'create your cord account' :` Wohoo! account created `} {isCreated &&<FaThumbsUp className='faa-bounce faa-slow animated'/>}  </h4>
                 {/* {isCreated &&  <button onClick={redirectToChat}> go to chat</button> } */}
               
                 <form onSubmit={handleSubmit}>

@@ -37,7 +37,8 @@ function LoginForm() {
       <div className="wrapper">
         <div className="form">
           
-          <AiFillWechat size={150} className="title faa-tada faa-slow animated" />
+          <AiFillWechat size={125} className="title faa-tada faa-slow animated main-icon" />
+          <h3 className="title icon-title">cord</h3>
           <form onSubmit={handleSubmit}>
             <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} className="input" placeholder="Username" required />
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="input" placeholder="Password" required />
