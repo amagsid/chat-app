@@ -1,11 +1,8 @@
 import React from 'react'
-import {Navbar, Container, Nav, NavDropdown } from 'react-bootstrap'
+import {Navbar, Container, Nav, NavDropdown, Dropdown, NavLink, NavItem } from 'react-bootstrap'
 import { BiLogOut } from "react-icons/bi";
+import { RiListSettingsLine } from "react-icons/ri";
 
-   // <div>
-        //     <button className='logout-button' onClick={signOut}> logout </button>
-            
-        // </div>
 
 function NavBar() {
     const signOut = () => {
@@ -15,26 +12,37 @@ function NavBar() {
         window.location.reload();
       }
 
+
+      const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
+        <a
+          href=""
+          ref={ref}
+          onClick={e => {
+            e.preventDefault();
+            onClick(e);
+          }}
+        >
+            <RiListSettingsLine size={30} style={{color:'purple'}}/>
+          {children}
+        </a>
+      ));
+
     return (
-        <Navbar bg="light" expand="lg">
-        <Container>
-      
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              {/* <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#link">Link</Nav.Link> */}
-              <NavDropdown title="Go to" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Chat settings (coming soon)</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Profile (coming soon)</NavDropdown.Item>
-                {/* <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item> */}
-                <NavDropdown.Divider />
-                <NavDropdown.Item onClick={signOut} href="#action/3.4"><BiLogOut/> Logout</NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+        <>
+    <Dropdown>
+  <Dropdown.Toggle as={CustomToggle}  variant="dark" id="dropdown-basic">
+  </Dropdown.Toggle>
+
+  <Dropdown.Menu>
+    <Dropdown.Item href="/profile">Profile (work in progress)</Dropdown.Item>
+    {/* <Dropdown.Item href="#/action-2">Another action</Dropdown.Item> */}
+    <NavDropdown.Divider />
+    <Dropdown.Item  onClick={signOut}> <BiLogOut size={20} style={{color:'purple'}}/> logout</Dropdown.Item>
+  </Dropdown.Menu>
+</Dropdown>
+
+        </>
+   
     )
 }
 
